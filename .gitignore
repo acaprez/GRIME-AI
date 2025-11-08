@@ -33,3 +33,23 @@ validation/
 /pytorch/third_party/fbgemm/external/
 /pytorch/third_party/flash-attention/
 /pytorch/third_party/flash-attention/csrc/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
