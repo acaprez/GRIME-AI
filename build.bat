@@ -58,15 +58,15 @@ pyinstaller --clean --noconfirm --onedir ^
   --hidden-import=skimage.io ^
   --hidden-import=skimage.transform ^
   --hidden-import=yaml ^
-  --contents-directory "." main.py
+  --contents-directory "." src/GRIME_AI/main.py
 
 REM Ensure the distribution folder exists
 if not exist "dist\main" mkdir "dist\main"
 
 REM
 REM Copy the splash screen graphic to the distribution folder
-copy "SplashScreen Images\Splash_007.jpg" dist\main
-copy "SplashScreen Images\GRIME-AI Logo.jpg" dist\main
+copy "Installer\splash\SplashScreen Images\Splash_007.jpg" dist\main
+copy "Installer\splash\SplashScreen Images\GRIME-AI Logo.jpg" dist\main
 
 REM Copy additional required directories and files
 if not exist "dist\main\sam2" mkdir "dist\main\sam2"

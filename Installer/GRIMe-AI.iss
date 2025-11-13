@@ -81,8 +81,8 @@ Source: "..\patches\transforms.py"; DestDir: "{app}\sam2\sam2\utils"
 Source: "..\site_config.json"; DestDir: "{userdocs}\GRIME-AI\Settings"; Flags: ignoreversion
 ;
 ; user interface files
-Source: "..\icons\*.*"; DestDir: "{app}\icons"
-Source: "..\QDialog*.ui"; DestDir: "{app}"
+Source: "..\src\GRIME_AI\icons\*.*"; DestDir: "{app}\icons"
+Source: "..\Installer\ui\QDialog*.ui"; DestDir: "{app}"
 ;
 ; documentation
 Source: "..\Documentation\GRIME-AI_v0059_v2.pdf"; DestDir: "{app}\Documentation"
