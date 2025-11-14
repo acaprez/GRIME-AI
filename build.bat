@@ -63,11 +63,6 @@ pyinstaller --clean --noconfirm --onedir ^
 REM Ensure the distribution folder exists
 if not exist "dist\main" mkdir "dist\main"
 
-REM
-REM Copy the splash screen graphic to the distribution folder
-copy "Installer\splash\SplashScreen Images\Splash_007.jpg" dist\main
-copy "Installer\splash\SplashScreen Images\GRIME-AI Logo.jpg" dist\main
-
 REM Copy additional required directories and files
 if not exist "dist\main\sam2" mkdir "dist\main\sam2"
 xcopy "venv\Lib\site-packages\sam2" "dist\main\sam2" /s /e /Y || echo Error copying sam2 folder
