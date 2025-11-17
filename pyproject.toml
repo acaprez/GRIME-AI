@@ -28,6 +28,14 @@ classifiers = [
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
+[project.optional-dependencies]
+dev = [
+    "import_metadata",
+    "pyinstaller",
+]
+
+
+
 #[tool.setuptools.packages.find]
 #where = ["src"] 
 
