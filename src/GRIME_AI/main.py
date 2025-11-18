@@ -591,9 +591,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # ------------------------------------------------------------------------------------------------------------------
         # DISPLAY SPLASH SCREEN
         # ------------------------------------------------------------------------------------------------------------------
-        splash = GRIME_AI_SplashScreen(QPixmap(u'splash/Splash_007.jpg'), strVersion=SW_VERSION)
+        splash = GRIME_AI_SplashScreen(QPixmap(os.path.join(os.path.dirname(os.path.abspath(__file__)),'splash','Splash_007.jpg')), strVersion=SW_VERSION)
         splash.show(self)
-        splash = GRIME_AI_SplashScreen(QPixmap(u'splash/GRIME-AI Logo.jpg'), delay=5)
+        splash = GRIME_AI_SplashScreen(QPixmap(os.path.join(os.path.dirname(os.path.abspath(__file__)),'splash','GRIME-AI Logo.jpg')), delay=5)
         splash.show(self)
 
 
