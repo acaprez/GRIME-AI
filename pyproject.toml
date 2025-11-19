@@ -15,7 +15,7 @@ maintainers = [
   {name = "Troy Gilmore", email = "gilmore@unl.edu"},
   {name = "John Stranzl", email = "jstranzl2@huskers.unl.edu"},
 ]
-description = "NCTPtools: Tools to assist in the management of data for the Nebraska Crop Testing Program (NCTP)."
+description = "GRIME-AI is a tool that facilitates the entire data science workflow for ground-based time-lapse imagery, from data acquisition to model deployment."
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
