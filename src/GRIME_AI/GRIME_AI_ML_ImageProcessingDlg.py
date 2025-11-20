@@ -25,7 +25,7 @@ from PyQt5 import QtCore, QtWidgets
 import matplotlib
 matplotlib.use("Qt5Agg")      # <<< FORCE Qt5Agg backend for PyQt5
 
-from GRIME_AI import GRIME_AI_Save_Utils
+from GRIME_AI.GRIME_AI_Save_Utils import GRIME_AI_Save_Utils
 from GRIME_AI.GRIME_AI_Save_Utils import JsonEditor
 from GRIME_AI.coco_generator import CocoGenerator
 from GRIME_AI.GRIME_AI_ImageAnnotatorDlg import ImageAnnotatorDialog
@@ -835,7 +835,7 @@ class GRIME_AI_ML_ImageProcessingDlg(QDialog):
         n_clusters = self.spinBox_numClusters.value()
 
         # Run analysis for this specific pair
-        from GRIME_AI import GRIME_AI_ROI_Analyzer
+        from GRIME_AI.GRIME_AI_ROI_Analyzer import GRIME_AI_ROI_Analyzer
         analyzer = GRIME_AI_ROI_Analyzer(orig_path, mask_path, clusters=n_clusters)
         analyzer.run_analysis()
 
@@ -940,7 +940,7 @@ class GRIME_AI_ML_ImageProcessingDlg(QDialog):
         if not folder or not os.path.isdir(folder):
             return
 
-        from GRIME_AI import GRIME_AI_ROI_Analyzer
+        from GRIME_AI.GRIME_AI_ROI_Analyzer import GRIME_AI_ROI_Analyzer
         temp = GRIME_AI_ROI_Analyzer("", "")
         pairs = temp.generate_file_pairs(folder)
         if not pairs:
@@ -965,7 +965,7 @@ class GRIME_AI_ML_ImageProcessingDlg(QDialog):
             return
 
         try:
-            from GRIME_AI import GRIME_AI_ROI_Analyzer
+            from GRIME_AI.GRIME_AI_ROI_Analyzer import GRIME_AI_ROI_Analyzer
         except ImportError:
             QMessageBox.warning(self, "ROI Analyzer", "Unable to import ROI Analyzer module.")
             return
@@ -1062,7 +1062,7 @@ class GRIME_AI_ML_ImageProcessingDlg(QDialog):
         # 3) Iterate pairs, run analysis, collect results
         for orig_path, mask_path in self._pairs:
             n_clusters = self.spinBox_numClusters.value()
-            from GRIME_AI import GRIME_AI_ROI_Analyzer
+            from GRIME_AI.GRIME_AI_ROI_Analyzer import GRIME_AI_ROI_Analyzer
             analyzer = GRIME_AI_ROI_Analyzer(orig_path, mask_path, clusters=n_clusters)
             try:
                 analyzer.run_analysis()

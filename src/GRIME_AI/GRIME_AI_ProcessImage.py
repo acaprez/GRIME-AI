@@ -15,10 +15,10 @@ from PIL import Image, ImageQt
 from PyQt5.QtGui import QPixmap, QImage
 from GRIME_AI.constants import edgeMethodsClass, featureMethodsClass
 
-from GRIME_AI import GRIME_AI_Image_Processing
-from GRIME_AI import GRIME_AI_Image_Conversion
+from GRIME_AI.GRIME_AI_Image_Processing import GRIME_AI_Image_Processing
+from GRIME_AI.GRIME_AI_Image_Conversion import GRIME_AI_Image_Conversion
 
-from GRIME_AI import GRIME_AI_Utils
+from GRIME_AI.GRIME_AI_Utils import GRIME_AI_Utils
 
 
 class GRIME_AI_ProcessImage:

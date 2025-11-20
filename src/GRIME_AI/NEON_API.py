@@ -34,7 +34,7 @@ from rpy2.robjects.packages import importr
 
 # GRIME-AI MODULES
 from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
-from GRIME_AI import GRIME_AI_Utils
+from GRIME_AI.GRIME_AI_Utils import GRIME_AI_Utils
 from GRIME_AI.GRIME_AI_Save_Utils import JsonEditor
 
 from GRIME_AI.nitrateData import nitrateData

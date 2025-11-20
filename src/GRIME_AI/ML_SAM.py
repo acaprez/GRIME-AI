@@ -28,9 +28,9 @@ import random
 from GRIME_AI.utils.datasetutils import DatasetUtils
 
 from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
-from GRIME_AI import GRIME_AI_Save_Utils
-from GRIME_AI import GRIME_AI_QMessageBox
-from GRIME_AI import GRIME_AI_Model_Training_Visualization
+from GRIME_AI.GRIME_AI_Save_Utils import GRIME_AI_Save_Utils
+from GRIME_AI.GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
+from GRIME_AI.GRIME_AI_Model_Training_Visualization import GRIME_AI_Model_Training_Visualization
 
 if True:
     import logging
