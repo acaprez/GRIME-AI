@@ -25,8 +25,8 @@ import ssl
 
 from pathlib import Path
 
-from GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
-from GRIME_AI_Save_Utils import JsonEditor
+from GRIME_AI import GRIME_AI_QMessageBox
+from GRIME_AI.GRIME_AI_Save_Utils import JsonEditor
 
 
 # ======================================================================================================================

@@ -20,8 +20,8 @@ from datetime import datetime, timedelta, time
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMessageBox
 
-from GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
-from GRIME_AI_QProgressWheel import QProgressWheel
+from GRIME_AI import GRIME_AI_QMessageBox
+from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
 
 
 import re

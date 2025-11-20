@@ -9,7 +9,7 @@
 
 # ML_Load_Model.py
 
-from ML_Dependencies import *
+from GRIME_AI.ML_Dependencies import *
 import os
 import sys
 import json
@@ -37,9 +37,9 @@ print(sam2_base.__file__)
 
 from PyQt5.QtWidgets import QMessageBox
 
-from GRIME_AI_QProgressWheel import QProgressWheel
-from GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
-from GRIME_AI_Save_Utils import GRIME_AI_Save_Utils
+from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
+from GRIME_AI import GRIME_AI_QMessageBox
+from GRIME_AI import GRIME_AI_Save_Utils
 
 
 # Set device

@@ -11,7 +11,7 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal, pyqtSlot
 from PyQt5.QtWidgets import QDialog, QWidget
 from PyQt5.uic import loadUi
-from constants import edgeMethodsClass, featureMethodsClass
+from GRIME_AI.constants import edgeMethodsClass, featureMethodsClass
 
 # ======================================================================================================================
 #

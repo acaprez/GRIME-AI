@@ -12,7 +12,7 @@ except Exception:
     Image = None
     ExifTags = None
 
-from GRIME_AI_logger import info as _info, debug as _debug, err as _err, warn as _warn
+from GRIME_AI.GRIME_AI_logger import info as _info, debug as _debug, err as _err, warn as _warn
 
 # ---------- constants ----------
 IMG_EXTS = {'.jpg', '.jpeg', '.png', '.tif', '.tiff', '.bmp'}

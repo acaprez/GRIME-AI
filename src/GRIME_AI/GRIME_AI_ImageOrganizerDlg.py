@@ -19,12 +19,12 @@ from PyQt5.QtCore import pyqtSlot, QTimer
 from PyQt5.QtGui import QTextOption
 from PyQt5.QtWidgets import QDialog, QFileDialog, QMessageBox
 
-from image_organizer import (
+from GRIME_AI.image_organizer import (
     organize_images, example_filename,
     scan_for_datetime_presence, move_files_to_subfolder
 )
 
-from GRIME_AI_CSS_Styles import BUTTON_CSS_STEEL_BLUE
+from GRIME_AI.GRIME_AI_CSS_Styles import BUTTON_CSS_STEEL_BLUE
 
 # ----------------------------------------------------------------------------------------------------------------------
 # CONSTANTS

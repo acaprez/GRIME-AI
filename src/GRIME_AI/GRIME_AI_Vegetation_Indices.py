@@ -10,7 +10,7 @@
 import math
 from typing import Final
 
-from GRIME_AI_Utils import GRIME_AI_Utils
+from GRIME_AI import GRIME_AI_Utils
 
 
 '''

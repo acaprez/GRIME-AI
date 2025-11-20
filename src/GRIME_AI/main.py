@@ -182,7 +182,7 @@ from PyQt5.QtGui import QImage, QPixmap, QFont, QPainter, QPen, QIcon
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QToolBar, QCheckBox, QDateTimeEdit, \
     QGraphicsScene, QMessageBox, QAction, QHeaderView, QDialog, QFileDialog
 
-from GRIME_AI_SplashScreen import GRIME_AI_SplashScreen
+from GRIME_AI import GRIME_AI_SplashScreen
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -192,65 +192,68 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
-import sobelData
+from GRIME_AI import sobelData
 
 
 # ----------------------------------------------------------------------------------------------------------------------
 # POP-UP/MODELESS DIALOG BOXES
 # ----------------------------------------------------------------------------------------------------------------------
-from GRIME_AI_ColorSegmentationDlg import GRIME_AI_ColorSegmentationDlg
-from GRIME_AI_EdgeDetectionDlg import GRIME_AI_EdgeDetectionDlg
-from GRIME_AI_ImageNavigationDlg import GRIME_AI_ImageNavigationDlg
-from GRIME_AI_FileUtilitiesDlg import GRIME_AI_FileUtilitiesDlg
-from GRIME_AI_MaskEditorDlg import GRIME_AI_MaskEditorDlg
-from GRIME_AI_CompositeSliceDlg import GRIME_AI_CompositeSliceDlg
-from GRIME_AI_ProcessImage import GRIME_AI_ProcessImage
-from GRIME_AI_ReleaseNotesDlg import GRIME_AI_ReleaseNotesDlg
-from GRIME_AI_TriageOptionsDlg import GRIME_AI_TriageOptionsDlg
-from GRIME_AI_Color import GRIME_AI_Color
-from GRIME_AI_CompositeSlices import GRIME_AI_CompositeSlices
-from GRIME_AI_Vegetation_Indices import GRIME_AI_Vegetation_Indices, GreennessIndex
-from GRIME_AI_ExportCOCOMasksDlg import GRIME_AI_ExportCOCOMasksDlg
-from GRIME_AI_ML_ImageProcessingDlg import GRIME_AI_ML_ImageProcessingDlg
+from GRIME_AI import GRIME_AI_ColorSegmentationDlg
+from GRIME_AI import GRIME_AI_EdgeDetectionDlg
+from GRIME_AI import GRIME_AI_ImageNavigationDlg
+from GRIME_AI import GRIME_AI_FileUtilitiesDlg
+from GRIME_AI import GRIME_AI_MaskEditorDlg
+from GRIME_AI import GRIME_AI_CompositeSliceDlg
+from GRIME_AI import GRIME_AI_ProcessImage
+from GRIME_AI import GRIME_AI_ReleaseNotesDlg
+from GRIME_AI import GRIME_AI_TriageOptionsDlg
+from GRIME_AI import GRIME_AI_Color
+from GRIME_AI import GRIME_AI_CompositeSlices
+from GRIME_AI import GRIME_AI_Vegetation_Indices
+from GRIME_AI.GRIME_AI_Vegetation_Indices import GreennessIndex
+from GRIME_AI import GRIME_AI_ExportCOCOMasksDlg
+from GRIME_AI import GRIME_AI_ML_ImageProcessingDlg
 
-from GRIME_AI_ImageOrganizerDlg import GRIME_AI_ImageOrganizerDlg
+from GRIME_AI import GRIME_AI_ImageOrganizerDlg
 
-from GRIME_AI_Save_Utils import JsonEditor
-
-# ----------------------------------------------------------------------------------------------------------------------
-# ----------------------------------------------------------------------------------------------------------------------
-from GRIME_AI_Feature_Export import GRIME_AI_Feature_Export
-
+from GRIME_AI.GRIME_AI_Save_Utils import JsonEditor
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from GRIME_AI_Diagnostics import GRIME_AI_Diagnostics
-from GRIME_AI_ImageData import imageData
-from GRIME_AI_ImageStats import GRIME_AI_ImageStats
+from GRIME_AI import GRIME_AI_Feature_Export
 
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from GRIME_AI_PhenoCam import GRIME_AI_PhenoCam, dailyList
-from GRIME_AI_ProductTable import GRIME_AI_ProductTable
-from GRIME_AI_QLabel import DrawingMode
-from GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
-from GRIME_AI_QProgressWheel import QProgressWheel
-from GRIME_AI_Utils import GRIME_AI_Utils
-from GRIME_AI_roiData import GRIME_AI_roiData, ROIShape
+from GRIME_AI import GRIME_AI_Diagnostics
+from GRIME_AI.GRIME_AI_ImageData import imageData
+from GRIME_AI import GRIME_AI_ImageStats
 
-from GRIME_AI_Save_Utils import GRIME_AI_Save_Utils
-from GRIME_AI_Resize_Controls import GRIME_AI_Resize_Controls
 
-from GRIME_AI_TimeStamp_Utils import GRIME_AI_TimeStamp_Utils
-from GRIME_AI_ImageTriage import GRIME_AI_ImageTriage
+# ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
+from GRIME_AI import GRIME_AI_PhenoCam
+from GRIME_AI.GRIME_AI_PhenoCam import dailyList
+from GRIME_AI import GRIME_AI_ProductTable
+from GRIME_AI.GRIME_AI_QLabel import DrawingMode
+from GRIME_AI import GRIME_AI_QMessageBox
+from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
+from GRIME_AI import GRIME_AI_Utils
+from GRIME_AI import GRIME_AI_roiData
+from GRIME_AI.GRIME_AI_roiData import ROIShape
 
-#from GRIME_AI_DeepLearning import GRIME_AI_DeepLearning
+from GRIME_AI import GRIME_AI_Save_Utils
+from GRIME_AI import GRIME_AI_Resize_Controls
 
-from colorSegmentationParams import colorSegmentationParamsClass
-from GRIME_AI_GreenImageGenerator import GreenImageGenerator
+from GRIME_AI import GRIME_AI_TimeStamp_Utils
+from GRIME_AI import GRIME_AI_ImageTriage
 
-from GRIME_AI_COCO_Utils import GRIME_AI_COCO_Utils
+#from GRIME_AI import GRIME_AI_DeepLearning
+
+from GRIME_AI.colorSegmentationParams import colorSegmentationParamsClass
+from GRIME_AI.GRIME_AI_GreenImageGenerator import GreenImageGenerator
+
+from GRIME_AI import GRIME_AI_COCO_Utils
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -263,35 +266,35 @@ from omegaconf import OmegaConf, DictConfig
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from NEON_API import NEON_API
+from GRIME_AI import NEON_API
 
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from USGS_NIMS import USGS_NIMS
+from GRIME_AI import USGS_NIMS
 
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from chrome_driver import *
+from GRIME_AI.chrome_driver import *
 
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-import constants
-from constants import edgeMethodsClass, featureMethodsClass, modelSettingsClass
+import GRIME_AI.constants as constants
+from GRIME_AI.constants import edgeMethodsClass, featureMethodsClass, modelSettingsClass
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from exifData import EXIFData
+from GRIME_AI.exifData import EXIFData
 
 # import GRIME_AI_KMeans
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from ML_SAM import ML_SAM
-from ML_Load_Model import ML_Load_Model
-from ML_view_segmentation_object import ML_view_segmentation_object
+from GRIME_AI import ML_SAM
+from GRIME_AI import ML_Load_Model
+from GRIME_AI import ML_view_segmentation_object
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
@@ -299,13 +302,13 @@ global full
 full = 1
 
 if full == 1:
-    from neonAIgui import Ui_MainWindow
+    from GRIME_AI.neonAIgui import Ui_MainWindow
 elif full == 2:
     from GUIs.GRIMe_AIDownloadManager import Ui_MainWindow
 elif full == 3:
     from GUIs.guiTesting import Ui_MainWindow
 elif full == 4:
-    from GRIME_AI_NSF import Ui_MainWindow
+    from GRIME_AI.GRIME_AI_NSF import Ui_MainWindow
 
 global bStartupComplete
 bStartupComplete = False
@@ -3725,7 +3728,7 @@ def run_gui():
     global frame
 
     # If Hydra is already initialized, clear it
-    from GRIME_AI_Save_Utils import GRIME_AI_Save_Utils
+    from GRIME_AI import GRIME_AI_Save_Utils
 
     settings_folder = GRIME_AI_Save_Utils().get_settings_folder()
     print(settings_folder)

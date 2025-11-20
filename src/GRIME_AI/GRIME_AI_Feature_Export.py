@@ -17,14 +17,14 @@ import matplotlib.pyplot as plt
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image as ExcelImage
 
-from GRIME_AI_QProgressWheel import QProgressWheel
-from GRIME_AI_Utils import GRIME_AI_Utils
-from GRIME_AI_TimeStamp_Utils import GRIME_AI_TimeStamp_Utils
-from GRIME_AI_Color import GRIME_AI_Color
-from GRIME_AI_Vegetation_Indices import GRIME_AI_Vegetation_Indices
-from GRIME_AI_roiData import GRIME_AI_roiData
+from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
+from GRIME_AI import GRIME_AI_Utils
+from GRIME_AI import GRIME_AI_TimeStamp_Utils
+from GRIME_AI import GRIME_AI_Color
+from GRIME_AI import GRIME_AI_Vegetation_Indices
+from GRIME_AI import GRIME_AI_roiData
 
-from GRIME_AI_Texture import GLCMTexture, LBPTexture, GaborTexture, WaveletTexture, FourierTexture
+from GRIME_AI.GRIME_AI_Texture import GLCMTexture, LBPTexture, GaborTexture, WaveletTexture, FourierTexture
 
 # ======================================================================================================================
 #

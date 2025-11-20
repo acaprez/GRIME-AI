@@ -9,7 +9,7 @@
 
 # ML_SAM.py
 
-from ML_Dependencies import *  # JES - Boy, do I have issues with this. :(
+from GRIME_AI.ML_Dependencies import *  # JES - Boy, do I have issues with this. :(
 
 from torch.nn.functional import scaled_dot_product_attention
 from torch.nn.attention import sdpa_kernel, SDPBackend
@@ -25,12 +25,12 @@ from datetime import datetime
 import json
 import random
 
-from utils.datasetutils import DatasetUtils
+from GRIME_AI.utils.datasetutils import DatasetUtils
 
-from GRIME_AI_QProgressWheel import QProgressWheel
-from GRIME_AI_Save_Utils import GRIME_AI_Save_Utils
-from GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
-from GRIME_AI_Model_Training_Visualization import GRIME_AI_Model_Training_Visualization
+from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
+from GRIME_AI import GRIME_AI_Save_Utils
+from GRIME_AI import GRIME_AI_QMessageBox
+from GRIME_AI import GRIME_AI_Model_Training_Visualization
 
 if True:
     import logging

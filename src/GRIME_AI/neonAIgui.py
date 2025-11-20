@@ -508,5 +508,5 @@ class Ui_MainWindow(object):
         self.action_Sync_JSON_Annotations.setText(_translate("MainWindow", "Sync JSON Annotations"))
         self.action_Inspect_Annotations.setText(_translate("MainWindow", "Inspect Annotations"))
         self.action_ImageOrganizer.setText(_translate("MainWindow", "Image Organizer"))
-from GRIME_AI_QLabel import GRIME_AI_QLabel
-from GRIME_AI_QTableWidget import GRIME_AI_QTableWidget
+from GRIME_AI import GRIME_AI_QLabel
+from GRIME_AI import GRIME_AI_QTableWidget

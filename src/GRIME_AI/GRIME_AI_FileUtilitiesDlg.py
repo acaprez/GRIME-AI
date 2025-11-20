@@ -16,9 +16,9 @@ from PyQt5.QtCore import pyqtSignal, pyqtSlot
 from PyQt5.QtWidgets import QDialog
 from PyQt5.uic import loadUi
 
-from GRIME_AI_Utils import GRIME_AI_Utils
-from GRIME_AI_Save_Utils import JsonEditor
-from GRIME_AI_Video import GRIME_AI_Video
+from GRIME_AI import GRIME_AI_Utils
+from GRIME_AI.GRIME_AI_Save_Utils import JsonEditor
+from GRIME_AI import GRIME_AI_Video
 
 
 # ======================================================================================================================

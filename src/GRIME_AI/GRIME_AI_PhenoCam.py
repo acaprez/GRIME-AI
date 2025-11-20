@@ -14,11 +14,11 @@ import ssl
 
 import re
 
-from GRIME_AI_QProgressWheel import QProgressWheel
+from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
 
 from bs4 import BeautifulSoup
 
-from GRIME_AI_ImageData import imageData
+from GRIME_AI.GRIME_AI_ImageData import imageData
 
 global bChromeDriverLoaded
 bChromeDriverLoaded = False

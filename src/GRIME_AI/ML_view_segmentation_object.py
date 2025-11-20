@@ -9,7 +9,7 @@
 
 # view_segmentation_object.py
 
-from ML_Dependencies import *
+from GRIME_AI.ML_Dependencies import *
 from datetime import datetime
 
 from omegaconf import DictConfig

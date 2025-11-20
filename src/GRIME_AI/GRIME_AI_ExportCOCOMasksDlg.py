@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import QDialog, QFileDialog
 from PyQt5.uic import loadUi
 import promptlib
 
-from GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
+from GRIME_AI import GRIME_AI_QMessageBox
 
 # ======================================================================================================================
 #

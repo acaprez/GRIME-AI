@@ -2,7 +2,7 @@ from PyQt5 import Qt
 from PyQt5.QtCore import QRect, QPoint, Qt
 from PyQt5.QtGui import QPen, QBrush, QPainter, QPainterPath, QPolygon, QPolygonF
 from PyQt5.QtWidgets import QLabel, QVBoxLayout, QToolTip
-from GRIME_AI_roiData import ROIShape
+from GRIME_AI.GRIME_AI_roiData import ROIShape
 
 from enum import Enum
 
