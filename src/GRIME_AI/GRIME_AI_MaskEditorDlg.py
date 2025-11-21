@@ -11,6 +11,7 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal, Qt
 from PyQt5.QtWidgets import QDialog
 from PyQt5.uic import loadUi
+import os
 
 # ======================================================================================================================
 #
@@ -32,7 +33,7 @@ class GRIME_AI_MaskEditorDlg(QDialog):
         self.setWindowModality(QtCore.Qt.NonModal)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
 
-        loadUi('QDialog_MaskEditor.ui', self)
+        loadUi(os.path.join(os.path.dirname(os.path.abspath(__file__)),'ui','QDialog_MaskEditor.ui'), self)
 
         self.pushButton_AddMask.setStyleSheet('QPushButton {background-color: steelblue;}')
         self.pushButton_GenerateMask.setStyleSheet('QPushButton {background-color: steelblue;}')

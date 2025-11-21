@@ -53,4 +53,4 @@ grime-ai = "GRIME_AI.main:my_main"
 grime-ai = "GRIME_AI.main:my_main"
 
 [tool.setuptools.package-data]
-GRIME_AI = ["icons/*","splash/*"]
+GRIME_AI = ["icons/*","splash/*","ui/*"]

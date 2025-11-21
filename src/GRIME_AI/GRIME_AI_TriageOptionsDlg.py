@@ -15,6 +15,7 @@ import promptlib
 
 from PyQt5 import QtGui
 
+import os
 # ======================================================================================================================
 #
 # ======================================================================================================================
@@ -22,7 +23,7 @@ class GRIME_AI_TriageOptionsDlg(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        loadUi('QDialog_TriageOptions.ui', self)
+        loadUi(os.path.join(os.path.dirname(os.path.abspath(__file__)),'ui','QDialog_TriageOptions.ui'), self)
 
         self.referenceImageFilename = ''
 

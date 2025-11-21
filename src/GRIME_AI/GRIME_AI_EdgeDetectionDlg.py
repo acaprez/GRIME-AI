@@ -12,6 +12,7 @@ from PyQt5.QtCore import pyqtSignal, pyqtSlot
 from PyQt5.QtWidgets import QDialog, QWidget
 from PyQt5.uic import loadUi
 from GRIME_AI.constants import edgeMethodsClass, featureMethodsClass
+import os
 
 # ======================================================================================================================
 #
@@ -33,7 +34,7 @@ class GRIME_AI_EdgeDetectionDlg(QDialog):
 
         self.setModal(False)
         self.setWindowModality(QtCore.Qt.NonModal)
-        loadUi('QDialog_EdgeDetection.ui', self)
+        loadUi(os.path.join(os.path.dirname(os.path.abspath(__file__)),'ui','QDialog_EdgeDetection.ui'), self)
 
         # CONNECT THE SIGNALS TO THE FUNCTIONS IN THE PARENT ("CALLING") THREAD THAT WILL RECEIVE THE SIGNAL
         self.featureDetectionSignal.connect(parent.featureDetectionMethod)

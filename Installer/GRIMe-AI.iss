@@ -82,7 +82,7 @@ Source: "..\site_config.json"; DestDir: "{userdocs}\GRIME-AI\Settings"; Flags: i
 ;
 ; user interface files
 Source: "..\src\GRIME_AI\icons\*.*"; DestDir: "{app}\icons"
-Source: "..\Installer\ui\QDialog*.ui"; DestDir: "{app}"
+Source: "..\src\GRIME_AI\ui\QDialog*.ui"; DestDir: "{app}"
 ;
 ; documentation
 Source: "..\Documentation\GRIME-AI_v0059_v2.pdf"; DestDir: "{app}\Documentation"

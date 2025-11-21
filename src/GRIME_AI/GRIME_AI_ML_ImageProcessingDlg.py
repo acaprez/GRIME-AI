@@ -161,7 +161,7 @@ class GRIME_AI_ML_ImageProcessingDlg(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        UI_FILE = Path(__file__).resolve().parent / r"QDialog_ML_ImageProcessing.ui"
+        UI_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),'ui',"QDialog_ML_ImageProcessing.ui")
         loadUi(UI_FILE, self)
 
         self._pendingThumbnails = []

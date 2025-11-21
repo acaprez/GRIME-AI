@@ -10,6 +10,7 @@
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QDialog
 from PyQt5.uic import loadUi
+import os
 
 userCancelled = "Cancelled"
 userOk = "OK"
@@ -24,4 +25,4 @@ class GRIME_AI_ReleaseNotesDlg(QDialog):
         self.setModal(False)
         self.setWindowModality(QtCore.Qt.NonModal)
 
-        loadUi('QDialog_ReleaseNotes.ui', self)
+        loadUi(os.path.join(os.path.dirname(os.path.abspath(__file__)),'ui','QDialog_ReleaseNotes.ui'), self)

@@ -13,6 +13,7 @@
 from datetime import datetime
 from pathlib import Path
 import traceback
+import os
 
 from PyQt5 import uic
 from PyQt5.QtCore import pyqtSlot, QTimer
@@ -29,7 +30,7 @@ from GRIME_AI.GRIME_AI_CSS_Styles import BUTTON_CSS_STEEL_BLUE
 # ----------------------------------------------------------------------------------------------------------------------
 # CONSTANTS
 # ----------------------------------------------------------------------------------------------------------------------
-UI_FILE = Path(__file__).resolve().parent / "QDialog_ImageOrganizer.ui"
+UI_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),'ui',"QDialog_ImageOrganizer.ui")
 
 # ======================================================================================================================
 # ======================================================================================================================
