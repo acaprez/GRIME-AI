@@ -1,0 +1,10 @@
+name: grime-ai
+channels:
+  - conda-forge
+  - hcc
+  - defaults
+dependencies:
+  - python=3.11
+  - r-base=4.4
+  - r-neonutilities=3
+  - r-py=3
