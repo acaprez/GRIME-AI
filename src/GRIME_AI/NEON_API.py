@@ -43,8 +43,6 @@ from GRIME_AI.GRIME_AI_Save_Utils import JsonEditor
 
 from GRIME_AI.nitrateData import nitrateData
 
-from nitrateData import nitrateData
-
 SERVER = 'http://data.neonscience.org/api/v0/'
 
 # https://www.neonscience.org/sites/default/files/NEON_Field_Site_Metadata_20240423.csv
