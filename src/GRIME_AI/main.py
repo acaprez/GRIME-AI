@@ -163,7 +163,7 @@ from GRIME_AI.utils.resource_utils import icon_path
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
 from PyQt5 import QtCore, QtWidgets, QtGui
-from PyQt5.QtCore import QCoreApplication
+from PyQt5.QtCore import QCoreApplication, QRect
 from PyQt5.QtGui import QImage, QPixmap, QFont, QPainter, QPen, QIcon
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QToolBar, QDateTimeEdit, \
     QMessageBox, QAction, QHeaderView, QDialog, QFileDialog
@@ -222,6 +222,8 @@ from GRIME_AI.colorSegmentationParams import colorSegmentationParamsClass
 from GRIME_AI.geomaps.google_maps_viewer import GoogleMapWidget
 from GRIME_AI.geomaps.openstreetmap_viewer import OpenStreetMapWidget
 
+from GRIME_AI.QLabel_drawing_modes import DrawingMode
+
 # ----------------------------------------------------------------------------------------------------------------------
 # HYDRA (for SAM2)
 # ----------------------------------------------------------------------------------------------------------------------
@@ -231,17 +233,15 @@ from omegaconf import OmegaConf, DictConfig
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from neon.NEON_API import NEON_API
+from GRIME_AI.neon.NEON_API import NEON_API
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from constants import edgeMethodsClass, featureMethodsClass, modelSettingsClass
+from GRIME_AI.constants import edgeMethodsClass, featureMethodsClass, modelSettingsClass
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from exifData import EXIFData
-
-# import GRIME_AI_KMeans
+from GRIME_AI.exifData import EXIFData
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
@@ -250,7 +250,7 @@ from GRIME_AI.ml_core.ml_image_segmentation import MLImageSegmentation
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-from neonAIgui import Ui_MainWindow
+from GRIME_AI.neonAIgui import Ui_MainWindow
 
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
@@ -434,6 +434,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         splash.show(self)
 
         # ------------------------------------------------------------------------------------------------------------------
+        # INITIALIZE VARIABLES
+        # ------------------------------------------------------------------------------------------------------------------
+        self.myNIMS = None
+        self.cameraDictionary = {}
+        self.phenocam_site_dictionary = {}
+
+        # ------------------------------------------------------------------------------------------------------------------
         # CREATE REQUIRED FOLDERS IN THE USER'S DOCUMENTS FOLDER
         # ------------------------------------------------------------------------------------------------------------------
         utils = GRIME_AI_Utils()
@@ -489,7 +496,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # INITIALIZE WIDGETS
         maxRows = self.tableWidget_ROIList.rowCount()
-        nCol = 0
         for i in range(0, maxRows):
             self.tableWidget_ROIList.removeRow(0)
 
@@ -615,35 +621,31 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.show()
 
-        try:
-            self.phenocam_site_dictionary = myNEON_API.scrape_phenocam_table()
-        except:
-            print('ERROR: Unable to access Phenocam site information on Phenocam server!')
-
-        ###JES - USING OPENSTREENMAP INSTEAD OF GOOLE TO AVOID PAYING A FEE TO GOOGLE.
-        #self.init_google_maps(self.cameraDictionary)
-
+        #shapefile_path = self.osm_widget.load_shapefile("Ogallala", "NE_Aggregated_polygons.shp")
         #geojson_str = self.shapefile_to_geojson_string(shapefile_path)
         geojson_str = None
         self.init_openstreetmap(self.cameraDictionary, redList=self.NEON_siteList, geojson_str=geojson_str)
 
-        shapefile_path = self.osm_widget.load_shapefile("Ogallala", "NE_Aggregated_polygons.shp")
-
+        # -----     USGS NIMS     -----     USGS NIMS     -----     USGS NIMS     -----     USGS NIMS     -----
         if self.cameraDictionary:
             for name, coords in self.cameraDictionary.items():
                 self.osm_widget.add_pin(coords["lat"], coords["lng"], color="usgs_green", label=name)
+
+        # -----     NEON     -----     NEON     -----     NEON     -----     NEON     -----     NEON     -----
+        if self.NEON_siteList:
+            for coords in self.NEON_siteList:
+                self.osm_widget.add_pin(coords.latitude, coords.longitude, color="gold", label=coords.siteName)
+
+        # -----      PHENOCAM      -----      PHENOCAM      -----      PHENOCAM      -----      PHENOCAM      -----
+        try:
+            self.phenocam_site_dictionary = myNEON_API.scrape_phenocam_table()
+        except Exception as e:
+            print('ERROR: Unable to access Phenocam site information on Phenocam server!')
 
         if self.phenocam_site_dictionary:
             for site_id, info in self.phenocam_site_dictionary.items():
                 self.osm_widget.add_pin(info["lat"], info["lon"], color="yellow", label=site_id)
 
-        if self.NEON_siteList:
-            for coords in self.NEON_siteList:
-                self.osm_widget.add_pin(coords.latitude, coords.longitude, color="gold", label=coords.siteName)
-
-        # IF THE PHENCOCAM SITE DICTIONARY IS NOT EMPTY, THEN POPULATE THE TREE WIDGET ON THE MAIN GRIME AI CANVAS.
-        # OTHERWISE, THE ASSUMPTION IS THAT THE PHENOCAM SERVER IS INACCESSIBLE/OFFLINE.
-        if self.phenocam_site_dictionary:
             self.populate_phenocam_tree()
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -1739,32 +1741,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         global imageFileFolder
         composite_slices_folder = GRIME_AI_Save_Utils().create_composite_slices_folder(imageFileFolder)
 
-        # Get original image dimensions
-        orig_h, orig_w, _ = self.compositeSliceDlg._originalImage.shape
+        slice_rect = self.compositeSliceDlg.label_Image.getSliceRectInOriginal()
 
-        # Use the label’s aspect-ratio–aware mapping
-        rect = self.compositeSliceDlg.label_Image.getSliceRectInOriginal(orig_w, orig_h)
-
-        # Compute center and width directly in original image coordinates
-        actualSliceCenter = rect.left() + rect.width() // 2
-        actualSliceWidth = rect.width()
-
-        compositeSlices = GRIME_AI_CompositeSlices(actualSliceCenter, actualSliceWidth)
+        compositeSlices = GRIME_AI_CompositeSlices(slice_rect)
         compositeSlices.create_composite_image(dailyImagesList.visibleList, composite_slices_folder)
-
-    def _drawn_pixmap_geometry(self):
-        pm = self.pixmap()
-        if not pm or pm.isNull():
-            return 0, 0, 0, 0  # draw_w, draw_h, x_off, y_off
-
-        label_w, label_h = self.width(), self.height()
-        pm_w, pm_h = pm.width(), pm.height()
-
-        # The pixmap is already scaled to fit the label preserving AR,
-        # so pm_w/pm_h are the drawn dimensions. Compute insets.
-        x_off = (label_w - pm_w) // 2
-        y_off = (label_h - pm_h) // 2
-        return pm_w, pm_h, x_off, y_off
 
     def closeCompositeSlices(self):
         if self.compositeSliceDlg != None:
