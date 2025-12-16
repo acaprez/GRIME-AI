@@ -69,3 +69,9 @@ class USGS_NIMS_Shim:
                                        QMessageBox.Close)
             msg.displayMsgBox()
             return None, None
+
+    def get_nwisID(self):
+        try:
+            return self.nwis_id
+        except AttributeError:
+            return None
