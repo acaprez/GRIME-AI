@@ -205,6 +205,7 @@ from GRIME_AI.dialogs.image_organizer.GRIME_AI_ImageOrganizerDlg import GRIME_AI
 from GRIME_AI.phenocam.GRIME_AI_PhenoCam import GRIME_AI_PhenoCam, dailyList
 from GRIME_AI.GRIME_AI_ProductTable import GRIME_AI_ProductTable
 from GRIME_AI.GRIME_AI_QLabel import DrawingMode
+from GRIME_AI.GRIME_AI_QLabel import GRIME_AI_QLabel
 from GRIME_AI.GRIME_AI_QMessageBox import GRIME_AI_QMessageBox
 from GRIME_AI.GRIME_AI_QProgressWheel import QProgressWheel
 from GRIME_AI.GRIME_AI_Utils import GRIME_AI_Utils
