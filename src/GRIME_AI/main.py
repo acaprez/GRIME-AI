@@ -3883,8 +3883,9 @@ print(myconfig_name)
 '''
 
 # Resolve config path relative to this script
-dirname = os.path.dirname(os.path.abspath(__file__))
-myconfig_path = os.path.join(dirname, "sam2", "sam2", "configs", "sam2.1")
+import site
+dirname = os.path.join(os.path.dirname(site.getsitepackages()[0]),"site-packages")
+myconfig_path = os.path.join(dirname, "sam2", "configs", "sam2.1")
 print("Config path:", myconfig_path)
 myconfig_name = "sam2.1_hiera_l"
 ###JES myconfig_name = os.path.join(dirname, "sam2", "sam2", "configs", "sam2.1", "sam2.1_hiera_l")
