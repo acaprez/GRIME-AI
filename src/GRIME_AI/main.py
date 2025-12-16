@@ -756,7 +756,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def _usgs_progress(self, idx: int, total: int, label: str | None) -> None:
         """Progress callback for USGSClient operations."""
         if not hasattr(self, "_usgsProgress"):
-            self._usgsProgress = QProgressWheel(self)
+            self._usgsProgress = QProgressWheel()
             self._usgsProgress.setRange(0, total)
             self._usgsProgress.setWindowTitle("USGS Operation")
             self._usgsProgress.show()
