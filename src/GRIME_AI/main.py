@@ -1518,7 +1518,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             nHour, nMinute, nSecond = self.separateTime(self.table_USGS_Sites.cellWidget(0, endTimeCol).dateTime().time())
             endTime = datetime.time(nHour, nMinute, nSecond)
 
-            nwisID = self.myNIMS.get_nwisID()
+            nwisID = self.myNIMS.get_nwisID(site)
 
             imageCount = self.myNIMS.get_image_count(siteName=site, nwisID=nwisID, startDate=startDate, endDate=endDate, startTime=startTime, endTime=endTime)
         except Exception:
@@ -1581,7 +1581,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             nHour, nMinute, nSecond = self.separateTime(self.table_USGS_Sites.cellWidget(0, endTimeCol).dateTime().time())
             endTime = datetime.time(nHour, nMinute, nSecond)
 
-            nwisID = self.myNIMS.get_nwisID()
+            nwisID = self.myNIMS.get_nwisID(site)
 
             #downloadsFilePath = os.path.join(self.edit_USGSSaveFilePath.text(), 'Images')
             downloadsFilePath = self.edit_USGSSaveFilePath.text()

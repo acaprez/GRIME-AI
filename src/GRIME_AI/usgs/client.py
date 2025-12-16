@@ -107,3 +107,7 @@ class USGSClient:
         Returns (txt_path, csv_path).
         """
         return self._svc.fetch_stage_and_discharge(nwis_id, site_name, start_date, end_date, start_time, end_time, folder)
+
+    def get_nwisid(self, cam_id: str) -> str:
+        info: CameraInfo = self._svc.camera_info(cam_id)
+        return info.nwis_id

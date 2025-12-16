@@ -70,8 +70,5 @@ class USGS_NIMS_Shim:
             msg.displayMsgBox()
             return None, None
 
-    def get_nwisID(self):
-        try:
-            return self.nwis_id
-        except AttributeError:
-            return None
+    def get_nwisID(self,site):
+        return self._client.get_nwisid(site)
