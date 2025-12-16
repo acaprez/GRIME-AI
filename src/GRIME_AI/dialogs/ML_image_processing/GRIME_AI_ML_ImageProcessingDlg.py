@@ -33,7 +33,7 @@ from GRIME_AI.dialogs.ML_image_processing.annotation_tab import AnnotationTab
 from GRIME_AI.dialogs.ML_image_processing.coco_generation import COCOGeneration
 from GRIME_AI.dialogs.ML_image_processing.model_config_manager import ModelConfigManager
 from GRIME_AI.dialogs.ML_image_processing.annotation_analyzer_tab import AnnotationAnalyzerTab
-from GRIME_AI.dialogs.ML_image_processing.coco_viewer_tab import CocoViewerTab
+from GRIME_AI.dialogs.ML_image_processing.mask_viewer import CocoViewerTab
 
 # ======================================================================================================================
 # ======================================================================================================================
