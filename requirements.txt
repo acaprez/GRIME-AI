@@ -68,6 +68,7 @@ pywin32==311 ; sys_platform == 'win32'
 PyYAML==6.0.3
 regex==2025.11.3
 requests==2.32.5
+sam2==1.1.0
 rpy2==3.6.4
 rpy2-rinterface==3.6.3
 rpy2-robjects==3.6.3
