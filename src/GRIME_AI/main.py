@@ -768,7 +768,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self._usgsProgress.setWindowTitle(str(label))
 
         # Clean up when finished
-        if idx >= total:
+        if idx+1 >= total:
             self._usgsProgress.close()
             del self._usgsProgress
 
