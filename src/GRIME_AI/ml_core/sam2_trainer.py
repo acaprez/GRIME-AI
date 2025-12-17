@@ -7,7 +7,7 @@ import random
 import math
 import json
 from datetime import datetime
-import site
+import importlib.util
 
 import numpy as np
 import cv2
@@ -210,10 +210,10 @@ class SAM2Trainer:
             print("No training images found!")
             return
 
-        main_dir = os.path.join(os.path.dirname(site.getsitepackages()[0]),"site-packages")
-        model_cfg = os.path.normpath(os.path.join(main_dir, "sam2", "configs", "sam2.1", "sam2.1_hiera_l.yaml"))
-        sam2_checkpoint = os.path.normpath(os.path.join(main_dir, "sam2", "checkpoints", "sam2.1_hiera_large.pt"))
-        config_dir = os.path.normpath(os.path.join(main_dir, "sam2", "configs", "sam2.1"))
+        main_dir = os.path.dirname(importlib.util.find_spec('sam2').origin)
+        model_cfg = os.path.normpath(os.path.join(main_dir, "configs", "sam2.1", "sam2.1_hiera_l.yaml"))
+        sam2_checkpoint = os.path.normpath(os.path.join(main_dir, "checkpoints", "sam2.1_hiera_large.pt"))
+        config_dir = os.path.normpath(os.path.join(main_dir, "configs", "sam2.1"))
         print("Model config path: ", model_cfg)
         print("Checkpoint path: ", sam2_checkpoint)
         print("config_dir path: ", config_dir)
@@ -248,8 +248,8 @@ class SAM2Trainer:
         '''
 
         # --- REPLACEMENT FOR HYDRA THAT IS A BEAR TO USE AND MAINTAIN
-        cfg_file = os.path.join(main_dir, "sam2", "configs", "sam2.1", "sam2.1_hiera_l.yaml")
-        checkpoint = os.path.join(main_dir, "sam2", "checkpoints", "sam2.1_hiera_large.pt")
+        cfg_file = os.path.join(main_dir, "configs", "sam2.1", "sam2.1_hiera_l.yaml")
+        checkpoint = os.path.join(main_dir, "checkpoints", "sam2.1_hiera_large.pt")
 
         cfg_intern = OmegaConf.load(cfg_file)
         raw_model_cfg = OmegaConf.to_container(cfg_intern.model, resolve=True)
