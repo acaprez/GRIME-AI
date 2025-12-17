@@ -8,7 +8,7 @@
 # License: Apache License, Version 2.0, http://www.apache.org/licenses/LICENSE-2.0
 
 import cv2
-import GRIME_AI.sobelData
+from GRIME_AI.sobelData import sobelData
 import numpy as np
 
 from PIL import Image, ImageQt
@@ -88,7 +88,7 @@ class GRIME_AI_ProcessImage:
 
         #gray = cv2.cvtColor(img1, cv2.COLOR_RGB2GRAY)
 
-        mySobel = sobelData.sobelData()
+        mySobel = sobelData()
 
         mySobel.setSobelX(cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=sobelKernelSize))
         mySobel.setSobelY(cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=sobelKernelSize))
