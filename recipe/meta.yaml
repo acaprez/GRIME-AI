@@ -11,9 +11,11 @@ source:
   #git_rev: packaging/pip
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - cp -v ${RECIPE_DIR}/download-sam2-checkpoints.sh ${PREFIX}/bin
   run_exports:
     - {{ pin_subpackage(name|lower, max_pin="x") }}
   entry_points:
@@ -64,6 +66,7 @@ requirements:
     - webdriver-manager 4.0.*
     - r-base 4.4.*
     - r-neonutilities 3.*
+    - curl
 
 test:
   commands:
