@@ -43,6 +43,6 @@ $CMD $sam2p1_hiera_b_plus_url || { echo "Failed to download checkpoint from $sam
 echo "Downloading sam2.1_hiera_large.pt checkpoint..."
 $CMD $sam2p1_hiera_l_url || { echo "Failed to download checkpoint from $sam2p1_hiera_l_url"; exit 1; }
 
-echo "Success! SAM2 checkpoint files are downloaded."
+echo "Success! SAM2 checkpoint files are downloaded. You may now run GRIME-AI."
 
 exit 0
