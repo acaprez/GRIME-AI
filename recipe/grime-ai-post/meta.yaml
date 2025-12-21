@@ -1,0 +1,40 @@
+{% set name = "grime-ai-post" %}
+{% set version = "1.1.0.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+    path: /repo
+  #git_url: https://github.com/acaprez/GRIME-AI.git
+  #git_rev: packaging/pip
+
+build:
+  number: 0
+  script:
+    - cp -v ${RECIPE_DIR}/download-sam2-checkpoints.bat ${PREFIX}/bin  # [win]
+    - cp -v ${RECIPE_DIR}/download-sam2-checkpoints.py ${PREFIX}/bin/download-sam2-checkpoints.py # [win]
+    - cp -v ${RECIPE_DIR}/download-sam2-checkpoints.py ${PREFIX}/bin/download-sam2-checkpoints # [linux]
+  run_exports:
+    - {{ pin_subpackage(name|lower, max_pin="x") }}
+
+requirements:
+  host:
+    - python >=3.8,<4.0
+  run:
+    - python >=3.8,<4.0
+#   - grime-ai {{ version }}
+
+test:
+  commands:
+    - test -f ${PREFIX}/bin/download-sam2-checkpoints.bat # [win]
+    - test -f ${PREFIX}/bin/download-sam2-checkpoints # [linux]
+
+about:
+  home: https://gaugecam.org/grime-ai-details/
+  dev_url: https://github.com/JohnStranzl/GRIME-AI/
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE
+  summary: "GRIME-AI is a tool that facilitates the entire data science workflow for ground-based time-lapse imagery, from data acquisition to model deployment."

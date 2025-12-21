@@ -1,5 +1,5 @@
 {% set name = "grime-ai" %}
-{% set version = "1.1.0.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -13,9 +13,7 @@ source:
 build:
   number: 4
   noarch: python
-  script:
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-    - cp -v ${RECIPE_DIR}/download-sam2-checkpoints.py ${PREFIX}/bin/download-sam2-checkpoints
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   run_exports:
     - {{ pin_subpackage(name|lower, max_pin="x") }}
   entry_points:
@@ -42,7 +40,7 @@ requirements:
     - pandas 2.1.*
     - peft 0.18.*
     - piexif 1.1.*
-    - pillow 9.*
+    - pillow 10.*
     - promptlib 1.0.*
     - pycocotools 2.0.*
     - pyqt 5.*
@@ -53,7 +51,7 @@ requirements:
     - requests 2.31.*
     - rpy2 3.6.*
     - sam2 1.0.*
-    - scikit-image 0.24.*
+    - scikit-image 0.25.*
     - scikit-learn 1.*
     - seaborn 0.13.*
     - segment-anything 1.0.*
@@ -61,7 +59,7 @@ requirements:
     - supervision 0.20.*
     - pytorch 2.8.*
 #    - torchaudio 2.8.*
-    - torchvision >=0.22.*
+    - torchvision >=0.22
     - transformers 4.57.*
     - webdriver-manager 4.0.*
     - r-base 4.4.*

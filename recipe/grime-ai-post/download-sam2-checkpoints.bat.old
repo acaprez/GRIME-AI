@@ -1,0 +1,61 @@
+@echo off
+setlocal enabledelayedexpansion
+
+:: Get the directory of the sam2 installation using Python
+for /f "delims=" %%i in ('python -c "import sam2; import os; print(os.path.dirname(sam2.__file__))"') do set "SAM2_HOME=%%i"
+
+:: If the above fails, python might not be in the path or sam2 isn't installed
+if "%SAM2_HOME%"=="" (
+    echo Error: Could not find SAM2 installation directory.
+    exit /b 1
+)
+
+set "CHKPOINT_HOME=%SAM2_HOME%\checkpoints"
+
+:: Create the directory if it doesn't exist
+if not exist "%CHKPOINT_HOME%" (
+    mkdir "%CHKPOINT_HOME%"
+)
+
+:: Verify directory existence
+if not exist "%CHKPOINT_HOME%" (
+    echo Can't create %CHKPOINT_HOME%!
+    echo Please ensure '%CHKPOINT_HOME%' exists and is writeable.
+    exit /b 1
+)
+
+echo Downloading SAM2 checkpoint files to '%CHKPOINT_HOME%'...
+
+cd /d "%CHKPOINT_HOME%"
+
+:: Define the URLs for SAM 2.1 checkpoints
+set "SAM2p1_BASE_URL=https://dl.fbaipublicfiles.com/segment_anything_2/092824"
+set "sam2p1_hiera_t_url=%SAM2p1_BASE_URL%/sam2.1_hiera_tiny.pt"
+set "sam2p1_hiera_s_url=%SAM2p1_BASE_URL%/sam2.1_hiera_small.pt"
+set "sam2p1_hiera_b_plus_url=%SAM2p1_BASE_URL%/sam2.1_hiera_base_plus.pt"
+set "sam2p1_hiera_l_url=%SAM2p1_BASE_URL%/sam2.1_hiera_large.pt"
+
+:: Download function equivalent using curl (built-in to Windows 10/11)
+:: Note: --clobber is replaced by -f in most windows curl builds, or omitted.
+set "CMD=curl -# -L -O"
+
+echo Downloading sam2.1_hiera_tiny.pt checkpoint...
+%CMD% %sam2p1_hiera_t_url%
+if %ERRORLEVEL% neq 0 (echo Failed to download tiny checkpoint & exit /b 1)
+
+echo Downloading sam2.1_hiera_small.pt checkpoint...
+%CMD% %sam2p1_hiera_s_url%
+if %ERRORLEVEL% neq 0 (echo Failed to download small checkpoint & exit /b 1)
+
+echo Downloading sam2.1_hiera_base_plus.pt checkpoint...
+%CMD% %sam2p1_hiera_b_plus_url%
+if %ERRORLEVEL% neq 0 (echo Failed to download base_plus checkpoint & exit /b 1)
+
+echo Downloading sam2.1_hiera_large.pt checkpoint...
+%CMD% %sam2p1_hiera_l_url%
+if %ERRORLEVEL% neq 0 (echo Failed to download large checkpoint & exit /b 1)
+
+echo Success! SAM2 checkpoint files are downloaded. You may now run GRIME-AI.
+
+pause
+exit /b 0
