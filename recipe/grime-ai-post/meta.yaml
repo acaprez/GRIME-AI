@@ -7,11 +7,9 @@ package:
 
 source:
     path: .
-  #git_url: https://github.com/acaprez/GRIME-AI.git
-  #git_rev: packaging/pip
 
 build:
-  number: 0
+  number: 1
   script:
     - copy %RECIPE_DIR%\download-sam2-checkpoints.bat %PREFIX%  # [win]
     - copy %RECIPE_DIR%\download-sam2-checkpoints.py %PREFIX%  # [win]
